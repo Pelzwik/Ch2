@@ -1,7 +1,7 @@
-from django.urls import path
-from .views import HomePageView, AboutPageView  # new
+from django.contrib import admin
+from django.urls import path, include  # new
 
 urlpatterns = [
-    path("about/", AboutPageView.as_view(), name="about"),  # new
-    path("", HomePageView.as_view(), name="home"),
+    path("admin/", admin.site.urls),
+    path("", include("posts.urls")),  # new
 ]
